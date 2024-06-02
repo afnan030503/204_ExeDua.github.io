@@ -76,3 +76,43 @@
         <textarea class="form-control" id="feedback" rows="3" required></textarea>
     </div>
     <button type="button" class="btn btn-primary" onclick="submitForm()">Submit</button>
+</form>
+<div id="result" class="mt-4"></div>
+<div class="text-center mt-3">
+    <a href="1.html" class="btn btn-secondary">Kembali</a>
+</div>
+</div>
+
+<script>
+function submitForm() {
+    const name = document.getElementById('name').value;
+    const birthdate = document.getElementById('birthdate').value;
+    const gender = document.getElementById('gender').value;
+    const email = document.getElementById('email').value;
+    const feedback = document.getElementById('feedback').value;
+
+    let favoritePlayer = [];
+    if (document.getElementById('playerCristiano').checked) {
+        favoritePlayer.push("Cristiano Ronaldo");
+    }
+    if (document.getElementById('playerRooney').checked) {
+        favoritePlayer.push("Wayne Rooney");
+    }
+
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `
+        <h2>Hasil Survey</h2>
+        <p><strong>Nama:</strong> ${name}</p>
+        <p><strong>Tanggal Lahir:</strong> ${birthdate}</p>
+        <p><strong>Jenis Kelamin:</strong> ${gender}</p>
+        <p><strong>Pemain Favorit di MU:</strong> ${favoritePlayer.join(', ')}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Komentar:</strong> ${feedback}</p>
+    `;
+}
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
